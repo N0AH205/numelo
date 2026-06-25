@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: sans-serif;
+    font-size: 40px;
+    margin: 50px;
+    line-height: 2; /* large line-height to see overlapping */
+  }
+  
+  .na-beam-1 {
+    border-top: 2px solid black;
+    /* padding-top will be inherited or added by children? No, padding on parent */
+  }
+  
+  .na-dot-above {
+    padding-top: 0.6em; /* Does this push the parent's inline border up? */
+  }
+  .na-dot-above::before {
+    content: "•";
+    position: absolute; /* wait, absolute to what? inline elements can't be relative containers in some older browsers, but they can now */
+    top: -0.6em; /* relative to the inline element's text */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+  }
+  
+  .relative-inline {
+    position: relative;
+  }
+</style>
+</head>
+<body>
+
+<div>Testing Inline Padding:</div>
+
+<div style="margin-top: 50px;">
+  Text 
+  <span class="na-beam-1">
+    <span class="relative-inline">2</span>
+    <span class="relative-inline na-dot-above">2</span>
+  </span>
+</div>
+
+<div style="margin-top: 50px;">
+  Text 
+  <span class="na-beam-1" style="padding-top: 0.6em;">
+    <span class="relative-inline">2</span>
+    <span class="relative-inline" style="text-emphasis: filled dot; text-emphasis-position: over;">2</span>
+  </span>
+</div>
+
+</body>
+</html>

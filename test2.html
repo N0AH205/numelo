@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: sans-serif;
+    font-size: 40px;
+    margin: 50px;
+  }
+  .na-beam-1 {
+    border-top: 2px solid black;
+    padding-top: 3px;
+  }
+  /* Grid approach */
+  .na-dot-grid {
+    display: inline-grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .na-dot-grid::before {
+    content: "•";
+    font-size: 0.6em;
+    line-height: 0.5;
+  }
+  
+  /* Flex column-reverse approach */
+  .na-dot-flex-rev {
+    display: inline-flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .na-dot-flex-rev::after {
+    content: "•";
+    font-size: 0.6em;
+    line-height: 0.5;
+  }
+
+  /* Flex column approach */
+  .na-dot-flex {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .na-dot-flex::before {
+    content: "•";
+    font-size: 0.6em;
+    line-height: 0.5;
+  }
+
+  /* Span relative approach */
+  .na-dot-rel {
+    display: inline-block;
+    position: relative;
+  }
+  .na-dot-rel::before {
+    content: "•";
+    position: absolute;
+    top: -0.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6em;
+    line-height: 0.5;
+  }
+  .na-beam-rel {
+    display: inline-block;
+    border-top: 2px solid black;
+    padding-top: 0.5em; /* large enough to cover the dot */
+  }
+</style>
+</head>
+<body>
+
+<div>Baseline Alignment Test:</div>
+
+<div style="border-bottom: 1px solid red; margin-top: 50px; padding-bottom: 2px;">
+  Text 
+  <span>1</span> 
+  <span class="na-beam-1"><span class="na-dot-grid">3</span></span>
+  <span class="na-beam-1"><span class="na-dot-flex-rev">4</span></span>
+  <span class="na-beam-1"><span class="na-dot-flex">5</span></span>
+  <span class="na-beam-rel"><span class="na-dot-rel">6</span></span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: sans-serif;
+    font-size: 40px;
+    margin: 50px;
+  }
+  
+  /* Shared inline-block for proper box model */
+  .na-beam-1 {
+    display: inline-block;
+    border-top: 2px solid black;
+    padding-top: 3px;
+  }
+  
+  .na-number {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    line-height: 1; /* Reset line-height so bounding box matches text */
+  }
+
+  .na-dot-above {
+    padding-top: 0.6em; /* Space for the dot */
+  }
+
+  .na-dot-above::before {
+    content: "•";
+    position: absolute;
+    top: 0.1em; /* Place it inside the padding */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    line-height: 0.5;
+  }
+
+  /* Test for dot below as well */
+  .na-dot-below {
+    padding-bottom: 0.6em;
+  }
+  .na-dot-below::after {
+    content: "•";
+    position: absolute;
+    bottom: 0.1em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    line-height: 0.5;
+  }
+  
+</style>
+</head>
+<body>
+
+<div>Testing Beam Hugging Dot:</div>
+
+<div style="border-bottom: 1px solid red; margin-top: 50px; padding-bottom: 2px;">
+  Text 
+  <span class="na-number">1</span> 
+  <span class="na-beam-1">
+    <span class="na-number">2</span>
+    <span class="na-number na-dot-above">3</span>
+    <span class="na-number na-dot-below">4</span>
+  </span>
+</div>
+
+</body>
+</html>

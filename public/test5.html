@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: sans-serif;
+    font-size: 40px;
+    margin: 50px;
+    line-height: 1.8; 
+  }
+  
+  /* PERFECT CSS SOLUTION */
+  .na-beam-1 {
+    border-top: 1px solid black;
+    padding-top: 0.7em;
+  }
+  
+  .na-beam-2 {
+    border-top: 4px double black;
+    padding-top: 0.7em;
+  }
+
+  .na-dot-above {
+    -webkit-text-emphasis: filled dot;
+    text-emphasis: filled dot;
+    -webkit-text-emphasis-position: over;
+    text-emphasis-position: over;
+  }
+</style>
+</head>
+<body>
+
+<div>Testing Perfect Solution:</div>
+
+<div style="margin-top: 50px;">
+  Text 
+  <span class="na-beam-1">2 </span>
+  <span class="na-beam-1 na-beam-2">2 </span>
+  <span class="na-beam-1"><span class="na-dot-above">2</span></span>
+</div>
+
+<div style="margin-top: 50px;">
+  Text 
+  <span class="na-beam-1">
+    <span>2</span>
+    <span class="na-beam-2">2</span>
+    <span class="na-dot-above">2</span>
+  </span>
+</div>
+
+</body>
+</html>
